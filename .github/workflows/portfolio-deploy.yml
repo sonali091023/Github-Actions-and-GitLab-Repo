@@ -20,7 +20,7 @@ jobs:
         #Setup github pages
       - name: Setup the GitHub Pages
         uses: actions/configure-pages@v4
-      - #static code artifacts
+        #static code artifacts
       - name: Upload static files
         uses: actions/upload-pages-artifact@v4
         #github action for deploying to github pages-->This action deploys a pages site previously uploaded as an artifact [eg: actions/upload-pagesartifact] we recommended this action to be used.
@@ -29,6 +29,7 @@ jobs:
 
 
         #In GitOps- you have a repository code which is the sourc of the truth
+
 
 
       
