@@ -7,6 +7,7 @@ on:
     branches: [main]
 
 #These are the jobs inside workflow
+#Every job needs separate runner, its called parallelism [Ti means at a time multiple jobs should run individually]
 jobs:
 
   #these is name of the job
