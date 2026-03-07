@@ -1,0 +1,34 @@
+name: Portfolio
+on: 
+  push:
+    branches: [main]
+permissions: 
+      pages: write       #to deploy to pages
+      id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-actions
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps: 
+        #get access to your portfolio code via a pre-built actions
+        #Clones or checks out the code where this workflow is written  
+      - name: Checkout Code
+        uses: actions/checkout@v4    #This action can checkout your repo under $GITHUB_WORKSPACE, So your workflow can access it. 
+        #Setup github pages
+      - name: Setup the GitHub Pages
+        uses: actions/configure-pages@v4
+      - #static code artifacts
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v4
+        #github action for deploying to github pages-->This action deploys a pages site previously uploaded as an artifact [eg: actions/upload-pagesartifact] we recommended this action to be used.
+      - name: Deploy to github pages
+        uses: actions/deploy-pages@v4
+
+
+        #In GitOps- you have a repository code which is the sourc of the truth
+
+
+      
