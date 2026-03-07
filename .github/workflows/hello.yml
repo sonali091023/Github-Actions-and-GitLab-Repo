@@ -3,7 +3,7 @@ name: hello sonali
 
 # runs on a automatic trigger, whenever chnage is pushed to branch this process is [deployment]
 on:
-  push: 
+  push:    #if we use this then code will run every after commit and if dont want like that then simply use workflow_dispatch: 
     branches: [main]
 
 #These are the jobs inside workflow
