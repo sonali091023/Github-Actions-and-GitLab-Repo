@@ -4,6 +4,16 @@ on:
 
 #manual click [deliver] workflow whenever user needs
   workflow_dispatch: 
+    inputs:
+      environment: 
+        description: This is the environment where this workflow runs
+        default: 'dev'
+        required: true
+        type: choice
+        options:
+          - dev
+          - qa
+          - prod
 jobs:
   code: 
     runs-on: ubuntu-latest
