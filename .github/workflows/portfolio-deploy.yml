@@ -27,6 +27,7 @@ jobs:
           path: .
         #github action for deploying to github pages-->This action deploys a pages site previously uploaded as an artifact [eg: actions/upload-pagesartifact] we recommended this action to be used.
       - name: Deploy to github pages
+        id: deployment
         uses: actions/deploy-pages@v4
 
 
@@ -35,4 +36,5 @@ jobs:
 
 
       
+
 
