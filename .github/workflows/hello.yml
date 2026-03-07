@@ -1,7 +1,7 @@
 # This is workflow name
 name: hello sonali
 
-# runs on a trigger
+# runs on a automatic trigger, whenever chnage is pushed to branch this process is [deployment]
 on:
   push: 
     branches: [main]
