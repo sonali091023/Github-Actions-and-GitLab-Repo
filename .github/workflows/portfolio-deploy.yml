@@ -30,7 +30,6 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-
         #In GitOps- you have a repository code which is the sourc of the truth
 
 
