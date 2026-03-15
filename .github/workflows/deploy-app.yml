@@ -27,3 +27,4 @@ jobs:
 
             - name: deploy with docker compose
               run: docker compose down && docker compose up -d --build --force-recreate --pull always
+              #--force-recreate-->Container will always get recreate to avoid the same old container
