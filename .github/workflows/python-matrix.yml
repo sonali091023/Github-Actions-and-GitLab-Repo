@@ -1,9 +1,9 @@
 name: Python lint
 
 on: 
-    # push:
-    #     branches: [main]
-    workflow_dispatch:
+     push:
+         branches: [main]
+    #workflow_dispatch:
 
 jobs:
     validate:
@@ -29,3 +29,5 @@ jobs:
 
             - name: run linter
               run: flake8 app.py
+
+
