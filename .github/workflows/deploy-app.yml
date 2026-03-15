@@ -13,8 +13,8 @@ jobs:
     deploy:
         if: github.event.workflow_run.conclusion == 'success'
         env:
-            DOCKERHUB_USER: ${{ vars.DOCKERHUBUSER }}
-            DOCKER_TAG: ${{ github.event.workflow_run.head_sha }}
+            DOCKERHUBUSER: ${{ vars.DOCKERHUBUSER }}
+            DOCKERTAG: ${{ github.event.workflow_run.head_sha }}
 
         runs-on: self-hosted
 
