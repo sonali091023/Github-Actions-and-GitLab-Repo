@@ -1,88 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Zero To Hero</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #e0e0e0;
-        }
-        .container {
-            text-align: center;
-            padding: 2rem;
-            max-width: 640px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, #00d2ff, #7b2ff7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .badge {
-            display: inline-block;
-            margin: 1rem 0 2rem;
-            padding: 0.4rem 1.2rem;
-            border: 1px solid #7b2ff7;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            color: #c4b5fd;
-            letter-spacing: 0.05em;
-        }
-        .cards {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem 1.8rem;
-            min-width: 150px;
-            flex: 1;
-        }
-        .card span {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #9ca3af;
-            margin-bottom: 0.4rem;
-        }
-        .card strong {
-            font-size: 1.25rem;
-            color: #f9fafb;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Zero To Hero</title>
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family: "Segoe UI", system-ui, sans-serif;
+color:white;
+overflow:hidden;
+
+background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#1a1a40);
+background-size:400% 400%;
+animation: gradientBG 12s ease infinite;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+text-align:center;
+padding:40px;
+width:90%;
+max-width:800px;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter: blur(12px);
+
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.15);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,0.5),
+0 0 40px rgba(123,47,247,0.2);
+}
+
+h1{
+font-size:3rem;
+margin-bottom:10px;
+
+background:linear-gradient(90deg,#00d2ff,#7b2ff7,#ff00cc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+font-size:1rem;
+color:#cbd5e1;
+margin-bottom:25px;
+}
+
+.badge{
+display:inline-block;
+padding:8px 18px;
+border-radius:50px;
+
+background:rgba(123,47,247,0.15);
+border:1px solid #7b2ff7;
+
+font-size:14px;
+letter-spacing:1px;
+margin-bottom:35px;
+
+box-shadow:0 0 15px rgba(123,47,247,0.4);
+}
+
+.cards{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.card{
+flex:1;
+min-width:170px;
+
+padding:25px;
+
+border-radius:16px;
+
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.1);
+
+transition:0.35s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.04);
+
+background:rgba(255,255,255,0.1);
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.4),
+0 0 15px rgba(0,210,255,0.3);
+}
+
+.icon{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.card span{
+display:block;
+font-size:12px;
+text-transform:uppercase;
+letter-spacing:2px;
+color:#9ca3af;
+margin-bottom:6px;
+}
+
+.card strong{
+font-size:20px;
+color:#f9fafb;
+}
+
+.footer{
+margin-top:35px;
+font-size:13px;
+color:#94a3b8;
+}
+
+</style>
+
 </head>
+
 <body>
-    <div class="container">
-        <h1>DevOps Zero To Hero</h1>
-        <div class="badge">Josh Batch 10</div>
-        <div class="cards">
-            <div class="card">
-                <span>Framework</span>
-                <strong>Flask 3.1</strong>
-            </div>
-            <div class="card">
-                <span>Runtime</span>
-                <strong>Python 3.14</strong>
-            </div>
-            <div class="card">
-                <span>Deploy</span>
-                <strong>AWS ECS</strong>
-            </div>
-        </div>
-    </div>
+
+<div class="container">
+
+<h1>🚀 DevOps Zero To Hero</h1>
+
+<div class="subtitle">
+Building Scalable Cloud Native Applications
+</div>
+
+<div class="badge">
+Josh Batch 10
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">⚙️</div>
+<span>Framework</span>
+<strong>Flask 3.1</strong>
+</div>
+
+<div class="card">
+<div class="icon">🐍</div>
+<span>Runtime</span>
+<strong>Python 3.14</strong>
+</div>
+
+<div class="card">
+<div class="icon">☁️</div>
+<span>Deploy</span>
+<strong>AWS ECS</strong>
+</div>
+
+</div>
+
+<div class="footer">
+Powered by Docker • GitHub Actions • AWS
+</div>
+
+</div>
+
 </body>
 </html>
