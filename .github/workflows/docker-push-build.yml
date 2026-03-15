@@ -24,8 +24,10 @@ jobs:
             - name: Build & Push to Docker Hub
               uses: docker/build-push-action@v6
               with:
+                #here in context we have to mention the Dockerfile path, For now we have mention . it means Dockerfile is created in current dir
                 context: .
                 push: true
+                #when we have to add multiple lines then we use this pipe [|] like below
                 tags: |
                     ${{ vars.DOCKERHUBUSER }}/github-actions-app:${{ github.ref_name }}
                     ${{ vars.DOCKERHUBUSER }}/github-actions-app:latest
