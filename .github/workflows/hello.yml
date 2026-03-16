@@ -3,11 +3,12 @@ name: hello sonali
 
 # runs on a automatic trigger, whenever chnage is pushed to branch this process is [deployment]
 on:
-  push:    #if we use this then code will run every after commit and if dont want like that then simply use workflow_dispatch: 
-    branches: [main]
-    paths:     #So whenever push the code in the git branch and if it is related to html file thne only exection will get triggered
-      - '**.html'
-      - '**.yml'
+    workflow_dispatch: 
+  #push:    #if we use this then code will run every after commit and if dont want like that then simply use workflow_dispatch: 
+    #branches: [main]
+    #paths:     #So whenever push the code in the git branch and if it is related to html file thne only exection will get triggered
+      #- '**.html'
+      #- '**.yml'
   
 #These are the jobs inside workflow
 #Every job needs separate runner, its called parallelism [Ti means at a time multiple jobs should run individually]
