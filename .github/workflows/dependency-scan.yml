@@ -1,0 +1,27 @@
+#here we will scan the all available packages for the issues and vulnerabilities 
+#for example we are using flask version 3.1.0 and if there is any issue with that version dependency scan will tell us thta
+#pip-audit-->It audits/checks the python packages for issues, vulnerabilities 
+#if the package is java then we have tosearch on the google for "java package audit github actions"
+name: Dependency Scan 
+on: 
+    workflow_call:
+jobs:
+    dependency-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Code Checkout
+              uses: actions/checkout@v4
+
+            - name: setup python 3.12
+              uses: actions/setup-python@v5
+              with:
+                python-version: 3.12
+              
+            - name: Install pip Audit
+              run: pip install pip-audit #pip-audit is the tool which is used to scan the issues and vulnerabilities of the different packages
+              with:
+                python-version: "3.12"
+
+            - name: Audit Dependencies
+              run: pip-audit -r requirement.txt  #this will check all the packages issues and vulnerabilities available in the requirement.txt file 
+              #Here -r means recursively     
