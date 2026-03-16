@@ -3,7 +3,7 @@ name: DevSecOps End to End Pipeline
 on: 
     workflow_dispatch:
 jobs:
-
+        #CI [Continuous Integration with Security Scanning]
         code-quality:
             uses: ./.github/workflows/code-quality.yml
 
@@ -15,4 +15,11 @@ jobs:
 
         docker-scan:
             uses: ./.github/workflows/docker-lint.yml
+
+          
+        #Build once the Security scans are complete    
+        build:
+            needs: [code-quality, secrets-scan, dependency-check, docker-scan]
+            uses: ./.github/workflows/docker-build-push.yml
+            secrets: inherit
 
