@@ -23,3 +23,5 @@ jobs:
                 image-ref: ${{ vars.DOCKERHUBUSER }}/github-actions-app:${{ gihub.sha}}
                 severity: 'CRITICAL'
                 exit-code: '1'
+
+                
