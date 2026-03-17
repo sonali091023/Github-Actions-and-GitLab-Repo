@@ -9,6 +9,10 @@ jobs:
         steps:
             - name: Copy Docker Compose File
               uses: appleboy/scp-action@v1
+              with:
+                host: ${{ secrets.EC2_SSH_HOST }}
+                username: ${{ secrets.EC2_SSH_USER }}
+                key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
 
             - name: SSH to Prod Server
               uses: appleboy/ssh-action@v1.0.3
