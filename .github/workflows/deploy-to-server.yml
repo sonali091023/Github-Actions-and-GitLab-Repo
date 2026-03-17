@@ -16,6 +16,7 @@ jobs:
                 host: ${{ secrets.EC2_SSH_HOST }}
                 username: ${{ secrets.EC2_SSH_USER }}
                 key: ${{ secrets.EC2_SSH_PRIVATE_KEY }} 
+                  echo "SSH key found"
                 script: |
                   echo "Starting Deployment"
                   mkdir -p devops
