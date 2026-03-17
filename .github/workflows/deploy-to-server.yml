@@ -34,7 +34,7 @@ jobs:
                   echo "SSH key found"
                 script: |
                   echo "Starting Deployment"
-                  mkdir -p devops
+                  mkdir -p /home/${{ secrets.EC2_SSH_USER }}/devops
 
                     
 
