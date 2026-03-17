@@ -7,38 +7,39 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
+          - name: Checkout code
+            uses: actions/checkout@v4
 
-            - name: Checkout code
-              uses: actions/checkout@v4
-            - name: Debug files
-              run: |
-                echo "Current directory:"
-                pwd
-                echo "Files in repo:"
-                ls -R
+          # ✅ Create directory first
+          - name: Prepare server directory
+            uses: appleboy/ssh-action@v1.0.3
+            with:
+              host: ${{ secrets.EC2_SSH_HOST }}
+              username: ${{ secrets.EC2_SSH_USER }}
+              key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+              script: |
+                mkdir -p /home/${{ secrets.EC2_SSH_USER }}/devops
 
-            - name: Copy Docker Compose File
-              uses: appleboy/scp-action@v1
-              with:
-                host: ${{ secrets.EC2_SSH_HOST }}
-                username: ${{ secrets.EC2_SSH_USER }}
-                key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-                source: "./docker-compose.yml"
-
-            - name: SSH to Prod Server
-              uses: appleboy/ssh-action@v1.0.3
-              with:
-                host: ${{ secrets.EC2_SSH_HOST }}
-                username: ${{ secrets.EC2_SSH_USER }}
-                key: ${{ secrets.EC2_SSH_PRIVATE_KEY }} 
-                  echo "SSH key found"
-                script: |
-                  echo "Starting Deployment"
-                  mkdir -p /home/${{ secrets.EC2_SSH_USER }}/devops
-
-                    
+          # ✅ Copy file
+          - name: Copy Docker Compose File
+            uses: appleboy/scp-action@v1
+            with:
+              host: ${{ secrets.EC2_SSH_HOST }}
+              username: ${{ secrets.EC2_SSH_USER }}
+              key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+              source: "docker-compose.yml"
+              target: "/home/${{ secrets.EC2_SSH_USER }}/devops"
 
 
 
-
+          # ✅ Deploy
+          - name: Deploy
+            uses: appleboy/ssh-action@v1.0.3
+            with:
+              host: ${{ secrets.EC2_SSH_HOST }}
+              username: ${{ secrets.EC2_SSH_USER }}
+              key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+              script: |
+                cd /home/${{ secrets.EC2_SSH_USER }}/devops
+                docker-compose up -d
 
