@@ -10,7 +10,13 @@ jobs:
 
             - name: Checkout code
               uses: actions/checkout@v4
-              
+            - name: Debug files
+              run: |
+                echo "Current directory:"
+                pwd
+                echo "Files in repo:"
+                ls -R
+
             - name: Copy Docker Compose File
               uses: appleboy/scp-action@v1
               with:
